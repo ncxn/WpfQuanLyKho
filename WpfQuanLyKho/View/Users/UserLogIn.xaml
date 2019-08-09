@@ -13,6 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+        ResizeMode ="NoResize"
         Title="Đăng nhập" Height="350" Width="320" WindowStartupLocation="CenterScreen" Topmost="True" Icon="pack://siteoforigin:,,,/Resources/login.ico" >
 
     <!-- form Card type-->
@@ -90,7 +91,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row ="5"  HorizontalAlignment="Center" Margin="0">
-                <Label Height="30" Margin="0" Name="ForgotPassWord" VerticalAlignment="Top" FontFamily="Segoe UI" FontStyle="Italic">
+                <Label Height="auto" Margin="0" Name="ForgotPassWord" VerticalAlignment="Top" FontFamily="Segoe UI" FontStyle="Italic">
                     <Hyperlink Click="ForgotPassWord_Click">Quên mật khẩu</Hyperlink>
                 </Label>
             </Grid>

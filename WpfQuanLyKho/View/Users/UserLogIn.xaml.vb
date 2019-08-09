@@ -1,6 +1,6 @@
 ﻿Public Class UserLogIn
     Private Sub ForgotPassWord_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-        Dim main As MainWindow = New MainWindow()
-        main.Show()
+        Dim vMain As New Main()
+        vMain.Show()
     End Sub
 End Class

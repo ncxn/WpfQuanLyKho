@@ -1,0 +1,115 @@
+﻿<Window x:Class="UsersManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VTNCoLtd"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Quản lý nhân viên" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:UsersController></local:UsersController>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="60"> 
+            </RowDefinition>
+
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" VerticalAlignment="Top">
+            <local:UcToolbar VerticalAlignment="top" />
+        </Grid>
+        <Grid Grid.Row="1" VerticalAlignment="top" Margin="0,50,0,10">
+            <DataGrid
+                Margin="0 8 0 0"
+                ItemsSource="{Binding Users}"
+                CanUserSortColumns="True"
+                CanUserAddRows="True"
+                AutoGenerateColumns="False"
+                materialDesign:DataGridAssist.CellPadding="13 8 8 8"
+                materialDesign:DataGridAssist.ColumnHeaderPadding="8">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn
+                        Binding="{Binding IsSelected}"
+                        ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
+                        <DataGridCheckBoxColumn.Header>
+                            <!--padding to allow hit test to pass thru for sorting -->
+                            <Border
+                                Background="Transparent"
+                                Padding=" 0 0 0 0"
+                                HorizontalAlignment="Center">
+                                <CheckBox
+                                    HorizontalAlignment="Center"
+                                    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext}"
+                                    IsChecked="{Binding IsAllItems3Selected}" />
+                            </Border>
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn
+                        Binding="{Binding User_id}"
+                        Header="Mã nhân viên"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                    <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
+                    <materialDesign:MaterialDataGridTextColumn
+                        Binding="{Binding User_name}"
+                        Header="Tên đăng nhập"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                    <!-- set a max length to get an indicator in the editor -->
+                    <materialDesign:MaterialDataGridTextColumn
+                        Binding="{Binding User_email}"
+                        Header="Thư điện tử"
+                        MaxLength="255"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                    <materialDesign:MaterialDataGridTextColumn
+                        Binding="{Binding User_created_at,StringFormat=\{0:dd/mm/yyyy\}}"
+                        Header="Ngày tạo"
+                        Width="120"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
+                        <DataGridTextColumn.HeaderStyle>
+                            <Style
+                                TargetType="{x:Type DataGridColumnHeader}"
+                                BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                                <Setter
+                                    Property="HorizontalAlignment"
+                                    Value="Right" />
+                                <Setter
+                                    Property="ContentTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <TextBlock
+                                                TextWrapping="Wrap"
+                                                Text="{Binding}"
+                                                TextAlignment="Right" />
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style
+                                TargetType="{x:Type TextBlock}">
+                                <Setter
+                                    Property="HorizontalAlignment"
+                                    Value="Right" />
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </materialDesign:MaterialDataGridTextColumn>
+                    <materialDesign:MaterialDataGridTextColumn
+                        Binding="{Binding User_status}"
+                        Header="Trạng thái"
+                        MaxLength="255"
+                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                    <!-- use custom combo box column to get better combos. Use ItemsSourceBinding as your binding template to be applied to each combo -->
+                    <!--<materialDesign:MaterialDataGridComboBoxColumn
+                        Header="Trạng thái"
+                        SelectedValueBinding="{Binding User_status}"
+                        ItemsSourceBinding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Foods}" />-->
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
