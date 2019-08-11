@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Quản lý nhân viên" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
-        <local:UsersController></local:UsersController>
+        <local:UsersVM></local:UsersVM>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -20,7 +20,8 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" VerticalAlignment="Top">
-            <local:UcToolbar VerticalAlignment="top" />
+            <local:UcToolbar VerticalAlignment="top"
+                  Binding.XmlNamespaceManager="{Binding SelectedItem, ElementName=DataGrid}"           />
         </Grid>
         <Grid Grid.Row="1" VerticalAlignment="top" Margin="0,50,0,10">
             <DataGrid
@@ -50,11 +51,7 @@
                         </DataGridCheckBoxColumn.Header>
                     </DataGridCheckBoxColumn>
                     <DataGridTextColumn
-                        Binding="{Binding User_id}"
-                        Header="Mã nhân viên"
-                        EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                    <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
-                    <materialDesign:MaterialDataGridTextColumn
+                       
                         Binding="{Binding User_name}"
                         Header="Tên đăng nhập"
                         EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />

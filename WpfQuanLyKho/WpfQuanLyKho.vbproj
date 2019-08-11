@@ -148,7 +148,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\Users\UsersController.vb" />
+    <Compile Include="Global\Helper\DataConverter.vb" />
+    <Compile Include="Global\Helper\GenericObject.vb" />
+    <Compile Include="Global\Helper\GenericProperty.vb" />
+    <Compile Include="ViewModel\Uc\UcToolbarController.vb" />
+    <Compile Include="ViewModel\Users\IAuthenticationService.vb" />
+    <Compile Include="ViewModel\Users\UsersVM.vb" />
     <Compile Include="Global\Data Access Layer\DatabaseHandlerFactory.vb" />
     <Compile Include="Global\Data Access Layer\DataParameterManager.vb" />
     <Compile Include="Global\Data Access Layer\DBConnection.vb" />
@@ -162,8 +167,8 @@
     <Compile Include="Global\Test\program.vb" />
     <Compile Include="Global\Data Access Layer\SqlDataAccess .vb" />
     <Compile Include="Global\Test\User.vb" />
-    <Compile Include="Controller\RelayCommand.vb" />
-    <Compile Include="Controller\BaseController.vb" />
+    <Compile Include="ViewModel\RelayCommand.vb" />
+    <Compile Include="ViewModel\BaseVM.vb" />
     <Compile Include="Global\Helper\Security.vb" />
     <Compile Include="Model\UsersModel.vb" />
     <Compile Include="Resource.Designer.vb">
@@ -176,8 +181,8 @@
     <Compile Include="View\Uc\UcToolbar.xaml.vb">
       <DependentUpon>UcToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Users\UserLogIn.xaml.vb">
-      <DependentUpon>UserLogIn.xaml</DependentUpon>
+    <Compile Include="View\Users\UsersLogIn.xaml.vb">
+      <DependentUpon>UsersLogIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Users\UsersAdd.xaml.vb">
       <DependentUpon>UsersAdd.xaml</DependentUpon>
@@ -185,10 +190,8 @@
     <Compile Include="View\Users\UsersManager.xaml.vb">
       <DependentUpon>UsersManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewBase\IMainView.vb" />
-    <Compile Include="View\ViewBase\IView.vb" />
     <Compile Include="View\ViewHelper\YearConverter.vb" />
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="View\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -196,15 +199,15 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.vb">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\Main.xaml.vb">
+      <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Uc\UcToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Users\UserLogIn.xaml">
+    <Page Include="View\Users\UsersLogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -280,7 +283,9 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\ViewBase\" />
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

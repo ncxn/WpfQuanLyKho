@@ -1,7 +1,7 @@
 ﻿#Region " DTO Users"
 'table users
 Public Class UsersModel
-    Private _user_id As Integer
+    'Private _user_id As Integer
     Private _user_name As String
     Private _user_first_name As String
     Private _user_last_name As String
@@ -11,14 +11,14 @@ Public Class UsersModel
     Private _user_created_at As Date
     Private _user_updated_at As Date
 
-    Public Property User_id As Integer
-        Get
-            Return _user_id
-        End Get
-        Set(value As Integer)
-            _user_id = value
-        End Set
-    End Property
+    'Public Property User_id As Integer
+    '    Get
+    '        Return _user_id
+    '    End Get
+    '    Set(value As Integer)
+    '        _user_id = value
+    '    End Set
+    'End Property
     Public Property User_name As String
         Get
             Return _user_name

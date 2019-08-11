@@ -5,36 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VTNCoLtd"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             x:Name="UcToolbar">
     <ToolBarTray Background="Transparent">
         <ToolBar
             Background="Transparent"
             Style="{DynamicResource MaterialDesignToolBar}"
             ClipToBounds="False">
             <Button
+                x:Name="btnAdd"
                 ToolTip="Thêm mới"
-                Command="{Binding AddCmd}" 
+                Command="{Binding AddCmd}"
+                CommandParameter="{Binding ElementName=btnAdd}"
                 Cursor="Hand">
                 <materialDesign:PackIcon
                     Kind="Add"/>
             </Button>
             <Button
+                x:Name="btnEdit"
                 ToolTip="Sửa"
-                Command="{Binding EditCmd}" 
+                Command="{Binding EditCmd}"
+                CommandParameter="{Binding ElementName=btnEdit}"
                 Cursor="Hand">
                 <materialDesign:PackIcon
                     Kind="ModeEditOutline"/>
             </Button>
             <Button
+                x:Name="btnDelete"
                 ToolTip="Xóa"
-                Command="{Binding DeleteCmd}" 
+                Command="{Binding DeleteCmd}"
+                CommandParameter="{Binding ElementName=UcToolbar}"
                 Cursor="Hand">
                 <materialDesign:PackIcon
                     Kind="Delete"/>
             </Button>
             <Button
+                x:Name="btnRefresh"
                 ToolTip="Làm mới"
-                Command="{Binding RefreshCmd}" 
+                Command="{Binding RefreshCmd}"
+                CommandParameter="{Binding ElementName=btnRefresh}"
                 Cursor="Hand">
                 <materialDesign:PackIcon
                     Kind="Refresh"/>
