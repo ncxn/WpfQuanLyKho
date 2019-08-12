@@ -29,13 +29,14 @@ Public Class UsersVM
 
     Public Sub New()
         Users = ListUsers()
-        LogInCmd = New RelayCommand(AddressOf Login, AddressOf CanLogin)
+
         DeleteCmd = New RelayCommand(AddressOf Remove, AddressOf Confirm)
     End Sub
 
 
 
 #Region "Xử lý dữ liệu"
+
 #Region " Users data"
     Public Function ListUsers()
         Dim users As New ObservableCollection(Of UsersModel)
@@ -59,29 +60,7 @@ Public Class UsersVM
     End Function
 #End Region
 
-#Region "Đăng nhập"
-    Private Sub Login(ByVal parameter As Object)
-        Dim passwordBox As PasswordBox = TryCast(parameter, PasswordBox)
-        Dim PassWord As String = passwordBox.Password
-        Try
-            Dim user As UsersModel = GetUserLogin(UserName, PassWord)
-            Dim usersmanager As New UsersManager
-            usersmanager.Show()
 
-        Catch ex As UnauthorizedAccessException
-            MessageBox.Show("Éo đúng mài ơi")
-        End Try
-    End Sub
-    Private Function CanLogin(ByVal para As Object) As Boolean
-        Return True
-    End Function
-
-    Public Function GetUserLogin(ByVal username As String, ByVal PassWord As String) As UsersModel
-        Dim userData As UsersModel = Users.FirstOrDefault(Function(u) u.User_name.Equals(username) AndAlso u.User_password.Equals(Security.GetMD5(PassWord)))
-        If userData Is Nothing Then Throw New UnauthorizedAccessException("Access denied. Please provide some valid credentials.")
-        Return userData
-    End Function
-#End Region
     Private Sub Remove(user As UsersModel)
         Users.Remove(user)
     End Sub

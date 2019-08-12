@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
-Public MustInherit Class BaseVM
+Imports System.Collections.ObjectModel
+Public Class BaseVM
     Implements INotifyPropertyChanged
 
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
@@ -7,5 +8,4 @@ Public MustInherit Class BaseVM
     Protected Sub OnPropertyChanged(ByVal propertyName As String)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
-
 End Class
