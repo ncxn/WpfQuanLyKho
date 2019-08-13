@@ -23,7 +23,6 @@ Public Class BaseVM
     End Function
     Private Sub LoadBusy(ByVal parameter As Object)
         IsBusy = True
-
     End Sub
 
 

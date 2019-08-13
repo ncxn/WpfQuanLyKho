@@ -70,16 +70,16 @@ Public Class LoginVM
     Private Sub Login(ByVal parameter As Object)
         Dim passwordBox As PasswordBox = TryCast(parameter, PasswordBox)
         Dim PassWord As String = passwordBox.Password
-
+        IsBusy = True
         Try
-            'Dim user As UsersModel = GetUserLogin(UserName, PassWord)
-            Dim usersmanager As New Main
-            usersmanager.Show()
+            Dim user As UsersModel = GetUserLogin(UserName, PassWord)
+            Dim w As New Main
+            w.Show()
 
         Catch ex As Exception
             MessageBox.Show("Éo đúng mài ơi")
         End Try
-
+        IsBusy = False
     End Sub
     Private Function CanLogin(ByVal para As Object) As Boolean
         Return Not String.IsNullOrEmpty(UserName)

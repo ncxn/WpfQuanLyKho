@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:VTNCoLtd"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
@@ -18,16 +19,16 @@
         ResizeMode ="NoResize"
         Title="Đăng nhập" Height="400" Width="320" WindowStartupLocation="CenterScreen" Topmost="True" Icon="pack://siteoforigin:,,,/Resources/login.ico" 
         >
-    <Controls:ProgressRing IsActive="{Binding IsBusy}" />
+    
     <Window.DataContext>
-        <local:LoginVM></local:LoginVM>
+         <local:LoginVM></local:LoginVM>
     </Window.DataContext>
     <!-- form Card type-->
     <Window.Resources>
         <local:BusyIndicator x:Key="BusyControl" />
     </Window.Resources>
-   
-    <materialDesign:Card>
+    <!--<controls:ProgressRing IsActive="{Binding IsBusy}" />-->
+    <materialDesign:Card HorizontalAlignment="Stretch">
     
         <Grid>
             
@@ -47,6 +48,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row ="0" HorizontalAlignment="Center">
+                <Controls:ProgressRing IsActive="{Binding IsBusy}"/>
                 <Image x:Name="imageLogo" HorizontalAlignment="Left" Height="auto" Margin="-0" VerticalAlignment="Top" Width="auto" Source="pack://siteoforigin:,,,/Resources/visualstudio_code-card.png" Stretch="Fill" />
             </Grid>
             <Grid Grid.Row ="1">
