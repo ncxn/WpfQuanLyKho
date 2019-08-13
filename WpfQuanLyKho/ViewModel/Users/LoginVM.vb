@@ -21,22 +21,23 @@ Public Class LoginVM
         End Get
     End Property
 #End Region
-
     Public Sub New()
         _loginCmd = New RelayCommand(AddressOf Login, AddressOf CanLogin)
         _cancelCmd = New RelayCommand(AddressOf Cancel)
     End Sub
 
-#Region "Properties"
+#Region " Properties"
     Private _UserName As String
 
     Public Property UserName As String
         Get
             Return _UserName
         End Get
-        Set(value As String)
-            _UserName = value
-            OnPropertyChanged("UserName")
+        Set
+            If SetProperty(_UserName, Value) Then
+                LogInCmd.OnCanExecuteChanged()
+            End If
+            OnPropertyChanged(NameOf(UserName))
         End Set
 
     End Property
@@ -65,11 +66,11 @@ Public Class LoginVM
     End Function
 #End Region
 
-#Region "Đăng nhập"
+#Region " Đăng nhập"
     Private Sub Login(ByVal parameter As Object)
         Dim passwordBox As PasswordBox = TryCast(parameter, PasswordBox)
         Dim PassWord As String = passwordBox.Password
-        Debug.WriteLine(UserName + PassWord)
+
         Try
             'Dim user As UsersModel = GetUserLogin(UserName, PassWord)
             Dim usersmanager As New Main
@@ -81,10 +82,7 @@ Public Class LoginVM
 
     End Sub
     Private Function CanLogin(ByVal para As Object) As Boolean
-        Return True
-        'Return Not (String.IsNullOrEmpty(UserName))
-
-        'Debug.WriteLine(String.IsNullOrEmpty(UserName))
+        Return Not String.IsNullOrEmpty(UserName)
     End Function
 
     Public Function GetUserLogin(ByVal username As String, ByVal PassWord As String) As UsersModel
@@ -97,8 +95,8 @@ Public Class LoginVM
 #End Region
 
 #Region "Thoát"
-    Private Sub Cancel(Para As Object)
-        Dim win As Window = TryCast(Para, Window)
+    Private Sub Cancel(Parameter As Object)
+        Dim win As Window = TryCast(Parameter, Window)
         win.Close()
     End Sub
 #End Region

@@ -160,7 +160,6 @@
     <Compile Include="Global\Helper\DataConverter.vb" />
     <Compile Include="Global\Helper\GenericObject.vb" />
     <Compile Include="Global\Helper\GenericProperty.vb" />
-    <Compile Include="test.vb" />
     <Compile Include="ViewModel\Main\MainVM.vb" />
     <Compile Include="ViewModel\Uc\UcToolbarController.vb" />
     <Compile Include="ViewModel\Users\IAuthenticationService.vb" />
@@ -179,7 +178,7 @@
     <Compile Include="Global\Test\program.vb" />
     <Compile Include="Global\Data Access Layer\SqlDataAccess .vb" />
     <Compile Include="Global\Test\User.vb" />
-    <Compile Include="ViewModel\RelayCommand.vb" />
+    <Compile Include="ViewModel\Command\RelayCommand.vb" />
     <Compile Include="ViewModel\BaseVM.vb" />
     <Compile Include="Global\Helper\Security.vb" />
     <Compile Include="Model\UsersModel.vb" />
@@ -188,6 +187,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="View\Uc\BusyIndicator.xaml.vb">
+      <DependentUpon>BusyIndicator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Uc\Indicator.vb" />
+    <Compile Include="View\Uc\IndicatorHelpper.vb" />
     <Compile Include="View\ViewHelper\EmptyStringConverter.vb" />
     <Compile Include="View\ViewHelper\NullableBooleanConverter.vb" />
     <Compile Include="View\Uc\UcToolbar.xaml.vb">
@@ -215,6 +219,10 @@
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Uc\BusyIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Uc\UcToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -275,7 +283,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Resource.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>

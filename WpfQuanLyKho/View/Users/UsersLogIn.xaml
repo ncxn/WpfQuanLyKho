@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:VTNCoLtd"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         TextElement.Foreground="{StaticResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -17,15 +18,19 @@
         ResizeMode ="NoResize"
         Title="Đăng nhập" Height="400" Width="320" WindowStartupLocation="CenterScreen" Topmost="True" Icon="pack://siteoforigin:,,,/Resources/login.ico" 
         >
-    
+    <Controls:ProgressRing IsActive="{Binding IsBusy}" />
     <Window.DataContext>
         <local:LoginVM></local:LoginVM>
     </Window.DataContext>
     <!-- form Card type-->
-    
+    <Window.Resources>
+        <local:BusyIndicator x:Key="BusyControl" />
+    </Window.Resources>
+   
     <materialDesign:Card>
-
+    
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition
                     Height="150" />
@@ -107,8 +112,8 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row ="5"  HorizontalAlignment="Center" Margin="0">
-                <Label Height="auto" Margin="0" Name="ForgotPassWord" VerticalAlignment="Top" FontFamily="Segoe UI" FontStyle="Italic">
-                    <Hyperlink Click="ForgotPassWord_Click">Quên mật khẩu</Hyperlink>
+                 <Label Height="auto" Margin="0" Name="ForgotPassWord" VerticalAlignment="Top" FontFamily="Segoe UI" FontStyle="Italic">
+                    <Hyperlink >Quên mật khẩu</Hyperlink>
                 </Label>
             </Grid>
         </Grid>

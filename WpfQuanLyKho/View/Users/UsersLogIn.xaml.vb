@@ -1,6 +1,13 @@
 ﻿Public Class UsersLogIn
-    Private Sub ForgotPassWord_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-        Dim vMain As New Main()
-        vMain.Show()
+
+
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
     End Sub
+
 End Class
