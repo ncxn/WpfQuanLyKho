@@ -1,7 +1,7 @@
 ﻿Imports System.Security.Cryptography
 Imports System.Text
 
-Public Class Security
+Public Class Encryption
     Public Shared Function GetMD5(ByVal input As String) As String
         Dim md5Hash As MD5 = MD5.Create()
         Dim data As Byte() = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input))

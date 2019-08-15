@@ -87,7 +87,7 @@ Public Class LoginVM
 
     Public Function GetUserLogin(ByVal username As String, ByVal PassWord As String) As UsersModel
         Dim Users As ObservableCollection(Of UsersModel) = ListUsers()
-        Dim userData As UsersModel = Users.FirstOrDefault(Function(u) u.User_name.Equals(username) AndAlso u.User_password.Equals(Security.GetMD5(PassWord)))
+        Dim userData As UsersModel = Users.FirstOrDefault(Function(u) u.User_name.Equals(username) AndAlso u.User_password.Equals(Encryption.GetMD5(PassWord)))
         If userData Is Nothing Then Throw New UnauthorizedAccessException("Access denied. Please provide some valid credentials.")
         Return userData
     End Function

@@ -76,18 +76,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
-      <HintPath>..\packages\ControlzEx.4.0.1\lib\net462\ControlzEx.dll</HintPath>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Dashboard.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Core.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Grid.v18.2.Core, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -97,11 +88,14 @@
     <Reference Include="Google.Protobuf, Version=3.9.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.9.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
-    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.2.0.0-alpha0455\lib\net46\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.1.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.1.0\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
@@ -137,6 +131,9 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -157,14 +154,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Global\Helper\DataConverter.vb" />
-    <Compile Include="Global\Helper\GenericObject.vb" />
-    <Compile Include="Global\Helper\GenericProperty.vb" />
-    <Compile Include="ViewModel\Main\MainVM.vb" />
-    <Compile Include="ViewModel\Uc\UcToolbarController.vb" />
-    <Compile Include="ViewModel\Users\IAuthenticationService.vb" />
-    <Compile Include="ViewModel\Users\LoginVM.vb" />
-    <Compile Include="ViewModel\Users\UsersVM.vb" />
+    <Compile Include="App\ViewModel\Main\MenuItemVM.vb" />
+    <Compile Include="App\ViewModel\Main\Navigation.vb" />
+    <Compile Include="Global\Converter\DataConverter.vb" />
+    <Compile Include="Global\Converter\GenericObject.vb" />
+    <Compile Include="Global\Converter\GenericProperty.vb" />
+    <Compile Include="Global\Security\GuestRole.vb" />
+    <Compile Include="Global\Security\RoleContainer.vb" />
+    <Compile Include="Global\Security\CurrentRole.vb" />
+    <Compile Include="App\ViewModel\Main\MainVM.vb" />
+    <Compile Include="App\ViewModel\Uc\UcToolbarController.vb" />
+    <Compile Include="App\ViewModel\Users\IAuthenticationService.vb" />
+    <Compile Include="App\ViewModel\Users\LoginVM.vb" />
+    <Compile Include="App\ViewModel\Users\UsersVM.vb" />
     <Compile Include="Global\Data Access Layer\DatabaseHandlerFactory.vb" />
     <Compile Include="Global\Data Access Layer\DataParameterManager.vb" />
     <Compile Include="Global\Data Access Layer\DBConnection.vb" />
@@ -178,36 +180,36 @@
     <Compile Include="Global\Test\program.vb" />
     <Compile Include="Global\Data Access Layer\SqlDataAccess .vb" />
     <Compile Include="Global\Test\User.vb" />
-    <Compile Include="ViewModel\Command\RelayCommand.vb" />
-    <Compile Include="ViewModel\BaseVM.vb" />
-    <Compile Include="Global\Helper\Security.vb" />
-    <Compile Include="Model\UsersModel.vb" />
+    <Compile Include="Global\Command\RelayCommand.vb" />
+    <Compile Include="App\ViewModel\BaseVM.vb" />
+    <Compile Include="Global\Security\Encryption.vb" />
+    <Compile Include="App\Model\UsersModel.vb" />
     <Compile Include="Resource.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
-    <Compile Include="View\Uc\BusyIndicator.xaml.vb">
+    <Compile Include="App\View\Uc\BusyIndicator.xaml.vb">
       <DependentUpon>BusyIndicator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Uc\Indicator.vb" />
-    <Compile Include="View\Uc\IndicatorHelpper.vb" />
-    <Compile Include="View\ViewHelper\EmptyStringConverter.vb" />
-    <Compile Include="View\ViewHelper\NullableBooleanConverter.vb" />
-    <Compile Include="View\Uc\UcToolbar.xaml.vb">
+    <Compile Include="App\View\Uc\Indicator.vb" />
+    <Compile Include="App\View\Uc\IndicatorHelpper.vb" />
+    <Compile Include="App\View\ViewHelper\EmptyStringConverter.vb" />
+    <Compile Include="App\View\ViewHelper\NullableBooleanConverter.vb" />
+    <Compile Include="App\View\Uc\UcToolbar.xaml.vb">
       <DependentUpon>UcToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Users\UsersLogIn.xaml.vb">
+    <Compile Include="App\View\Users\UsersLogIn.xaml.vb">
       <DependentUpon>UsersLogIn.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Users\UsersAdd.xaml.vb">
+    <Compile Include="App\View\Users\UsersAdd.xaml.vb">
       <DependentUpon>UsersAdd.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Users\UsersManager.xaml.vb">
+    <Compile Include="App\View\Users\UsersManager.xaml.vb">
       <DependentUpon>UsersManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewHelper\YearConverter.vb" />
-    <Page Include="View\Main\Main.xaml">
+    <Compile Include="App\View\ViewHelper\YearConverter.vb" />
+    <Page Include="App\View\Main\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -215,27 +217,27 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\Main\Main.xaml.vb">
+    <Compile Include="App\View\Main\Main.xaml.vb">
       <DependentUpon>Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Uc\BusyIndicator.xaml">
+    <Page Include="App\View\Uc\BusyIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Uc\UcToolbar.xaml">
+    <Page Include="App\View\Uc\UcToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Users\UsersLogIn.xaml">
+    <Page Include="App\View\Users\UsersLogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Users\UsersAdd.xaml">
+    <Page Include="App\View\Users\UsersAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Users\UsersManager.xaml">
+    <Page Include="App\View\Users\UsersManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -303,7 +305,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\ViewBase\" />
+    <Folder Include="App\View\ViewBase\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

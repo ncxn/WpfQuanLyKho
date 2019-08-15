@@ -17,13 +17,5 @@ Public Class DataConverter
 
         Return _result
     End Function
-    'Public Shared Function ConvertOBC(Of T)(ByVal source As IEnumerable(Of T)) As ObservableCollection(Of T)
-    '    Dim result = New ObservableCollection(Of T)()
 
-    '    For Each item In source
-    '        result.Add(item)
-    '    Next
-
-    '    Return result
-    'End Function
 End Class
