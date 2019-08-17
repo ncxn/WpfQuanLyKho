@@ -1,3 +1,3 @@
-﻿Public Class UsersManager
+﻿Public Class Window
 
 End Class

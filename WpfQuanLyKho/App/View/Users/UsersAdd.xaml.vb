@@ -1,3 +1,5 @@
-﻿Public Class UsersAdd
+﻿Imports VTNCoLtd
+
+Public Class UsersAdd
 
 End Class

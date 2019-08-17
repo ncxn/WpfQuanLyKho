@@ -1,17 +1,19 @@
-﻿Imports MahApps.Metro.Controls
+﻿
+Imports System.IO
+Imports System.Windows.Markup
 
 Class Main
-    Private Navi As New Navigation
+
     Public Sub New()
-
-        ' This call is required by the designer.
         InitializeComponent()
+        Using s As FileStream = New FileStream("Menu.xaml", FileMode.Open)
+            Dim menu As System.Windows.Controls.Menu = TryCast(XamlReader.Load(s, New ParserContext()), System.Windows.Controls.Menu)
 
-        ' Add any initialization after the InitializeComponent() call.
+            If menu IsNot Nothing Then
+                main.Children.Insert(0, menu)
+            End If
+        End Using
 
     End Sub
-    Private Sub HamburgerMenuControl_OnItemClick(ByVal sender As Object, ByVal e As ItemClickEventArgs)
-        Me.HamburgerMenuControl.Content = e.ClickedItem
-        Me.HamburgerMenuControl.IsPaneOpen = False
-    End Sub
+
 End Class

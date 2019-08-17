@@ -96,7 +96,7 @@ Public Class LoginVM
 
 #Region "Thoát"
     Private Sub Cancel(Parameter As Object)
-        Dim win As Window = TryCast(Parameter, Window)
+        Dim win As Windows.Window = TryCast(Parameter, Windows.Window)
         win.Close()
     End Sub
 #End Region

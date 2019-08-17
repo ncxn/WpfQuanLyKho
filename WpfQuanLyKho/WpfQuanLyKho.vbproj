@@ -94,6 +94,9 @@
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignExtensions, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignExtensions.2.7.0\lib\net45\MaterialDesignExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignThemes.MahApps, Version=0.1.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.MahApps.0.1.0\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
     </Reference>
@@ -154,8 +157,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="App\Core\Menu\Menu.xaml.vb">
+      <DependentUpon>Menu.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="App\ViewModel\Main\MenuItemVM.vb" />
-    <Compile Include="App\ViewModel\Main\Navigation.vb" />
+    <Compile Include="App\ViewModel\Uc\UcMainMenuVM.vb" />
+    <Compile Include="App\View\Uc\UcMainMenu.xaml.vb">
+      <DependentUpon>UcMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Binding\BindingProxy.vb" />
     <Compile Include="Global\Converter\DataConverter.vb" />
     <Compile Include="Global\Converter\GenericObject.vb" />
     <Compile Include="Global\Converter\GenericProperty.vb" />
@@ -209,6 +220,11 @@
       <DependentUpon>UsersManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="App\View\ViewHelper\YearConverter.vb" />
+    <Page Include="App\Core\Menu\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
     <Page Include="App\View\Main\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -222,6 +238,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="App\View\Uc\BusyIndicator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="App\View\Uc\UcMainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -305,6 +325,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Core\RoleManager\" />
     <Folder Include="App\View\ViewBase\" />
   </ItemGroup>
   <ItemGroup>
