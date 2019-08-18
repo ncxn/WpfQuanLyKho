@@ -79,6 +79,12 @@
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -132,6 +138,7 @@
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -157,22 +164,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="App\Core\Menu\Menu.xaml.vb">
-      <DependentUpon>Menu.xaml</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="App\ViewModel\Main\MenuItemVM.vb" />
+    <Compile Include="App\ViewModel\Main\MainMenuVM.vb" />
     <Compile Include="App\ViewModel\Uc\UcMainMenuVM.vb" />
-    <Compile Include="App\View\Uc\UcMainMenu.xaml.vb">
-      <DependentUpon>UcMainMenu.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Global\Binding\BindingProxy.vb" />
     <Compile Include="Global\Converter\DataConverter.vb" />
     <Compile Include="Global\Converter\GenericObject.vb" />
     <Compile Include="Global\Converter\GenericProperty.vb" />
-    <Compile Include="Global\Security\GuestRole.vb" />
-    <Compile Include="Global\Security\RoleContainer.vb" />
-    <Compile Include="Global\Security\CurrentRole.vb" />
+    <Compile Include="App\Core\RoleManager\GuestRole.vb" />
+    <Compile Include="App\Core\RoleManager\RoleContainer.vb" />
+    <Compile Include="App\Core\RoleManager\CurrentRole.vb" />
     <Compile Include="App\ViewModel\Main\MainVM.vb" />
     <Compile Include="App\ViewModel\Uc\UcToolbarController.vb" />
     <Compile Include="App\ViewModel\Users\IAuthenticationService.vb" />
@@ -207,9 +207,6 @@
     <Compile Include="App\View\Uc\IndicatorHelpper.vb" />
     <Compile Include="App\View\ViewHelper\EmptyStringConverter.vb" />
     <Compile Include="App\View\ViewHelper\NullableBooleanConverter.vb" />
-    <Compile Include="App\View\Uc\UcToolbar.xaml.vb">
-      <DependentUpon>UcToolbar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App\View\Users\UsersLogIn.xaml.vb">
       <DependentUpon>UsersLogIn.xaml</DependentUpon>
     </Compile>
@@ -220,11 +217,6 @@
       <DependentUpon>UsersManager.xaml</DependentUpon>
     </Compile>
     <Compile Include="App\View\ViewHelper\YearConverter.vb" />
-    <Page Include="App\Core\Menu\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Page>
     <Page Include="App\View\Main\Main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -241,14 +233,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="App\View\Uc\UcMainMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="App\View\Uc\UcToolbar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="App\View\Users\UsersLogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -260,6 +244,11 @@
     <Page Include="App\View\Users\UsersManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\VSTabControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -324,10 +313,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App\Core\RoleManager\" />
-    <Folder Include="App\View\ViewBase\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

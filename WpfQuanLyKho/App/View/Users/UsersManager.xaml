@@ -20,8 +20,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" VerticalAlignment="Top">
-            <local:UcToolbar VerticalAlignment="top"
-                  Binding.XmlNamespaceManager="{Binding SelectedItem, ElementName=DataGrid}"           />
+            
         </Grid>
         <Grid Grid.Row="1" VerticalAlignment="top" Margin="0,50,0,10">
             <DataGrid
