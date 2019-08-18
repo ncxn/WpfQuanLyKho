@@ -6,7 +6,7 @@
     Private _role As Boolean
 
     Public Sub New()
-        '_UsersAddCmd = New RelayCommand(AddressOf OpenAddUsers)
+        _UsersAddCmd = New RelayCommand(AddressOf OpenAddUsers)
     End Sub
 
     Private Function CanOpenAddUsers(obj As Object) As Boolean

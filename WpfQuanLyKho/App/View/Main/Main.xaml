@@ -31,13 +31,13 @@
     <!--#endregion-->
     
     <!--#region Menu chính-->
-   
-        <Menu x:Name="MainMenu" IsMainMenu="True">
 
-        <MenuItem Header="Import" DataContext="{Binding MainMenuVM}" Command="{Binding UsersAddCmd}"/>
+    <Menu x:Name="MainMenu" IsMainMenu="True" DataContext="{Binding MainMenuVM}" >
+
+        <MenuItem Header="Import" Command="{Binding UsersAddCmd}"/>
           
             <!--#region Menu Hệ thống-->
-            <MenuItem Header="_Hệ thống" DataContext="{Binding MainMenuVM}">
+            <MenuItem Header="_Hệ thống">
                 <MenuItem.Icon>
                     <materialDesign:PackIcon Kind="SettingsOutline" />
                 </MenuItem.Icon>

@@ -12,4 +12,5 @@ Class Main
         ' Add any initialization after the InitializeComponent() call.
         Me.DataContext = New MainMenuVM
     End Sub
+
 End Class
